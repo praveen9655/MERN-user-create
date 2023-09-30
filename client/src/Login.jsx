@@ -10,7 +10,7 @@ function Login(){
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-    axios.post('https://mern-server-api-phi.vercel.app/',{email,password})
+    axios.post('https://mern-server-api-phi.vercel.app/login',{email,password})
     .then(result =>{
         console.log(result)
         if(result.data == 'success'){
