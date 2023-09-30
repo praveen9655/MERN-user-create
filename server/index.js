@@ -13,7 +13,14 @@ app.use(cors(
 ));
 app.use(express.json())
 
-mongoose.connect('mongodb+srv://praveeen:5A4k053kfcKhXAyP@arjceterp.23k4i1t.mongodb.net/TestLogin?retryWrites=true&w=majority');
+const dbUrl = "mongodb+srv://praveeen:5A4k053kfcKhXAyP@arjceterp.23k4i1t.mongodb.net/TestLogin?retryWrites=true&w=majority";
+
+const connectionParams = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
+
+mongoose.connect(dbUrl, connectionParams)
 
 
 app.get("/", (req, res) => {
