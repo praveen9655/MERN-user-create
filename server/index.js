@@ -44,18 +44,10 @@ app.post('/login',(req,res)=>{
     })
 })
 
-app.post('/register', (req, res) => {
-    const {name, email, password} = req.body;
-    EmployeeModel.findOne({email: email})
-    .then(user => {
-        if(user) {
-            res.json("Already have an account")
-        } else {
-            RegisterModel.create({name: name, email: email, password: password})
-            .then(result => res.json(result))
-            .catch(err => res.json(err))
-        }
-    }).catch(err => res.json(err))
+app.post('/register',(req,res)=>{
+    EmployeeModel.create(req.body)
+    .then(employee => res.json(employees))
+    .catch(err => res.json(err))
 })
 
 
